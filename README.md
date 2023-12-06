@@ -1,5 +1,5 @@
 # Buffban-laptrinhonline.club
-Tool buff bẩn web lập trình online với một số options có sẵn, khuyến khích lạm dụng và chỉ dùng với mục đích tham khảo
+Tool buff bẩn web lập trình online với một số options có sẵn, không khuyến khích lạm dụng và chỉ dùng với mục đích tham khảo
 
 # Cài đặt
 ```
