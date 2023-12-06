@@ -16,7 +16,7 @@ Chỉnh ngôn ngữ mặc định của tài khoản laptrinhonline thành C++
 Nếu có thêm bài làm thì import vào folder "dapan" với tên file giống tên tiêu đề của problem (chỉ source của C++)
 ```
 //Xem tính năng
-python main.py -h
+python buffban.py -h
 ```
 Lần đầu sử dụng sẽ mở trình duyệt mới để đăng nhập tài khoản, khởi tạo cookies. Sau đấy thì không cần đăng nhập lại. Nếu muốn sử dụng tài khoản khác thì xóa file cookies.pickle
 ```
