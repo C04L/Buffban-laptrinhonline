@@ -20,7 +20,7 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 
 EXEC_PATH = "chromedriver"
 
 def program_exit():
-    print("Exiting...")
+    print("Đã đạt giới hạn, đang thoát...")
     exit()
 
 class Automator:
@@ -127,7 +127,7 @@ class Automator:
                             self.browser.find_element(By.CSS_SELECTOR, "#ace_source > div > textarea").send_keys(code)
                             self.browser.find_element(By.CLASS_NAME, "button").click()
                             time.sleep(self.sleep)
-                            if (count > self.max):
-                                program_exit()
                         except:
                             continue
+                        if count == self.max:
+                            program_exit()
