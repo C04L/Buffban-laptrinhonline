@@ -13,7 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 URL = "http://laptrinhonline.club"
-BASE_URL = "http://laptrinhonline.club/problems/?page="
+BASE_URL = "http://laptrinhonline.club/problems/?hide_solved=1&page="
 LOGIN_URL = "http://laptrinhonline.club/accounts/login/?next="
 COOKIES_FILE = HERE / "cookies.pickle"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36"
@@ -45,6 +45,7 @@ class Automator:
         options = Options()
         if headless:
             options.add_argument("--headless=new")
+        options.add_argument("--disable-popup-blocking")
         options.add_argument(f"user-agent={USER_AGENT}")
 
         self.browser = webdriver.Chrome(
@@ -70,6 +71,8 @@ class Automator:
         """
         options = Options()
         options.add_argument("--headless=new")
+        options.add_argument("--disable-popup-blocking")
+        options.add_argument(f"user-agent={USER_AGENT}")
         self.browser = webdriver.Chrome(
             options=options,
         )
@@ -127,6 +130,12 @@ class Automator:
                             self.browser.find_element(By.CSS_SELECTOR, "#ace_source > div > textarea").send_keys(code)
                             self.browser.find_element(By.CLASS_NAME, "button").click()
                             time.sleep(self.sleep)
+                            try:
+                                alert = self.browser.switch_to.alert
+                                alert.accept()
+                            except:
+                                print(f"Hoàn thành {probName}")
+
                         except Exception as e:
                             print(f"Gặp lỗi tại {probName}: {e}")
                             continue
