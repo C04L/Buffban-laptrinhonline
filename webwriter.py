@@ -104,7 +104,7 @@ class Automator:
     def submit(self) -> list:
         """Lặp qua từng trang của web laptrinhonline để check trùng tên với dapan
             Bất cứ file trùng nào đều sẽ được submit code"""
-        count = 0
+        count = 1
         files = getFile("./dapan")
         print(f"GIÁ TRỊ SLEEP HIỆN TẠI: {self.sleep}")
         print(f"GIÁ TRỊ MAX HIỆN TẠI: {self.max}")
@@ -127,7 +127,8 @@ class Automator:
                             self.browser.find_element(By.CSS_SELECTOR, "#ace_source > div > textarea").send_keys(code)
                             self.browser.find_element(By.CLASS_NAME, "button").click()
                             time.sleep(self.sleep)
-                        except:
+                        except Exception as e:
+                            print(f"Gặp lỗi tại {probName}: {e}")
                             continue
                         if count == self.max:
                             program_exit()
