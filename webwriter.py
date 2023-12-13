@@ -115,6 +115,8 @@ class Automator:
             self.browser.get(BASE_URL + str(i))
             soup = bs(self.browser.page_source, "html.parser")
             values = soup.find_all("td", class_="problem")
+
+            #Lặp qua toàn bộ câu hỏi và đối chiếu đáp án
             for value in values:
                 probName = remove_accents(value.text.replace("\n", ""))
                 for file in files:
@@ -126,10 +128,13 @@ class Automator:
                         code = open(f"./dapan/{file}.txt", "r")
                         code = code.read()
                         count += 1
+                        #Xử lý alert
                         try:
                             self.browser.find_element(By.CSS_SELECTOR, "#ace_source > div > textarea").send_keys(code)
                             self.browser.find_element(By.CLASS_NAME, "button").click()
                             time.sleep(self.sleep)
+
+                            #Xử lý trường hợp web hiện alert
                             try:
                                 alert = self.browser.switch_to.alert
                                 alert.accept()
@@ -137,6 +142,7 @@ class Automator:
                             except:
                                 print(f"Hoàn thành {probName}")
 
+                        #Bỏ qua các bài lỗi:
                         except Exception as e:
                             print(f"Gặp lỗi tại {probName}: {e}")
                             continue
