@@ -133,6 +133,7 @@ class Automator:
                             try:
                                 alert = self.browser.switch_to.alert
                                 alert.accept()
+                                continue
                             except:
                                 print(f"Hoàn thành {probName}")
 
