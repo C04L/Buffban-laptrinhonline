@@ -3,6 +3,7 @@ Tool buff bẩn web laptrinhonline với một số options có sẵn, không kh
 
 # Cài đặt
 ```
+Mở file:
 install.bat
 ```
 # Yêu cầu
@@ -15,6 +16,21 @@ python3
 Chỉnh ngôn ngữ mặc định của tài khoản laptrinhonline thành C++
 Nếu có thêm bài làm thì import vào folder "dapan" với tên file giống tên tiêu đề của problem (chỉ source của C++)
 ```
+//Trỏ đường dẫn đến thư mục chứa folder python
+cd địa_chỉ_thư_mục
+
+//Chạy tool
+python buffban.py
+
+//Chạy tool với số bài giới hạn (mặc định là khoảng 500 bài)
+python buffban -m <số_bài>
+VD: python buffban.py -m 50
+
+//Chạy tool với thời gian nghỉ cho trước
+python buffban.py -s <thời_gian_tính_bằng_giây>
+VD: python buffban.py -s 2
+hoặc: python buffban.py -m 50 -s 2
+
 //Xem tính năng
 python buffban.py -h
 ```
