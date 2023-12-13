@@ -3,6 +3,7 @@ Tool buff bẩn web laptrinhonline với một số options có sẵn, không kh
 
 # Cài đặt
 ```
+Mở file:
 install.bat
 ```
 # Yêu cầu
